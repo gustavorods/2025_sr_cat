@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conversando com o Sr. Gato</title>
+  <link rel="stylesheet" href="./src/css/style.css" />
+  <link rel="shortcut icon" type="image/png" href="./src/img/sr_cat_photo1.png">
+</head>
+<body>
+  <div class="cat">
+    <img id="catImage" src="./src/img/normal.png" alt="normal cat" />
+  </div>
+
+  <div class="chat_container">
+    <div class="cat_chat chat">
+      <p class="name">Sr. Gato: </p>
+      <p class="text cat_text"></p>
+    </div>
+
+    <div class="nanda_chat chat">
+      <p class="name">Opções:</p>
+        <input type="button" class="btn" value="Quero escutar algo bonito">
+        <br><br>
+        <input type="button" class="btn music_btn" value="Uma músiquinha pra relaxar? ;)">
+         <br>
+        <audio class="audio" src="./src/song/music.mp3" controls style="display: none; margin-top: 10px;"></audio>
+    </div>
+  </div>
+
+<script src="./src/js/script.js"></script>
+</body>
+</html>

@@ -1,38 +1,28 @@
-    const textoInicial = "Olá Nanda, meu nome é Sr. Gato. O Gustavo me construiu para te animar quando você estiver meio xoxa e precisar ouvir algo bonito que ele tenha a dizer.";
+    // const textoInicial = "Olá Nanda, meu nome é Sr. Gato. O Gustavo me construiu para te animar quando você estiver meio xoxa e precisar ouvir algo bonito que ele tenha a dizer.";
+    const textoInicial = "Olá Nanda, quanto tempo! Lembra meu nome? Meu nome é Sr. Gato, o Gustavo me contou algumas coisinhas e eu vou falar pra você :) Mas antes, olha meu relógio e meu café, gostou?";
 
-    const frasesBonitas = [
-      "Ele te ama mais que tudo.",
-      "Se ele pudesse, estaria aí agora mesmo, te enchendo de abraços e beijos.",
-      "O Gustavo nunca vai invalidar o que você sente. Ele te ama muito e valoriza sua vulnerabilidade. Você é o que ele tem de mais precioso.",
-      "Ele NUNCA vai desistir de você.",
-      "Só de estar perto de você, ele já se sente em paz.",
-      "Tudo o que ele quer nesta vida é te fazer feliz.",
-      "Ele ama o seu sorriso.",
-      "Ele ama a sua risada.",
-      "Ele acha seu cabelo a coisa mais cheirosa do mundo.",
-      "Ele te acha absurdamente linda.",
-      "Ele se sente muito amado, feliz e sortudo por ter você.",
-      "Você é o amor da vida dele.",
-      "Você faz o Gustavo ser melhor a cada dia.",
-      "O Gustavo quer ficar ao seu lado o tempo inteiro, porque valoriza muito o tempo com você.",
-      "Você é muito importante para ele.",
-      "O Gustavo às vezes pode ser meio confuso de entender, mas tenta todos os dias ser melhor. Ele tenta porque quer ser melhor para você.",
-      "Tudo pode estar desmoronando em volta dele, mas se você estiver com ele, ele consegue ficar calmo e dar um jeito.",
-      "Para o Gustavo, não importa se momentos difíceis virão. O que importa é enfrentarem isso juntos.",
-      "O Gustavo ama suas habilidades artísticas.",
-      "Desde o dia em que você permitiu que o Gustavo entrasse no seu mundo, ele tem se esforçado para compreendê-lo, porque sabe que, entendendo o seu mundo, pode te amar melhor.",
-      "O Gustavo vai te dar o negócio da Fran já já, mas não conta que eu te falei isso.",
-      "Você faz o Gustavo ser melhor.",
-      "O Gustavo só quer você!",
-      "O Gustavo te quer muito.",
-      "O Gustavo gosta de palavras de afirmação, por isso ama quando você o elogia e diz palavras carinhosas.",
-      "O sonho do Gustavo é casar com você.",
-      "Conversas importantes são necessárias, e o Gustavo ama quando você expressa sua opinião e jeito de pensar.",
-      "O Gustavo ama suas artes.",
-      "O Gustavo acha você uma mulher muito forte, dedicada e determinada.",
-      "O Gustavo nunca vai desistir de você (de novo, porque não custa reforçar).",
-      "O Gustavo adora quando vocês começam a falar de algo bobo e acabam rindo juntos. KKKKKK",
-      "Você é o amor da vida do Gustavo."
+        const frasesBonitas = [
+      "Gustavo tem medo de você abandoná-lo, ele te ama muito.",
+      "Gustavo está toda hora pensando numa maneira de casar com você logo.",
+      "Gustavo gosta quando você se abre para ele e fala sobre seus sentimentos.",
+      "Gustavo pode falar coisas bem bobas do nada, mas tudo que ele quer no final é conseguir tirar uma risada sua.",
+      "Você não tem ideia do quanto ele te ama.",
+      "Gustavo é um cara que tem ciúmes, às vezes não fala por medo de parecer controlador, mas saiba que, no fundo, ele só tem medo de te perder.",
+      "Ele chora quando está com muita saudade sua e chora porque ama demais você.",
+      "Gustavo ama sua risada.",
+      "Ele adora quando você complementa as piadas bobas dele.",
+      "Ele nunca te trocaria.",
+      "Ele se sente especial quando você fala 'não fale com Molieres'.",
+      "Ele te ama e te quer muito.",
+      "Ele ama seus beijinhos.",
+      "Ele te acha MUITO linda.",
+      "Gustavo às vezes fica meio pra baixo, porque a mente dele pensa demais 24 horas por dia, e tudo que ele precisa nesses momentos é seu beijinho, um abraço e uma confirmação de que você o ama.",
+      "Você vive na mente dele, é o melhor pensamento dele.",
+      "Você tira as risadas mais sinceras dele.",
+      "Ele fica te admirando do nada, porque fica fascinado com sua beleza e com o fato de você ser um sonho realizado.",
+      "ELE TE AMA MUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUITO!",
+      "Mensagem dele agora:",
+      "Bom diaaa, minha gatita linda! Espero que seu dia seja maravilhoso e que minha presença ajude nisso. Eu te amo muito, beijos, linda!"
     ];
 
     const elemento = document.querySelector(".cat_text");
@@ -94,7 +84,7 @@
         digitar(frasesBonitas[fraseIndex]);
         fraseIndex++;
       } else {
-        digitar("Acabaram as frases por enquanto, Nanda, mas o amor que ele sente por você nunca vai acabar. O Gustavo está trabalhando para adicionar mais frases e me melhorar. E se você ainda estiver um pouquinho xoxa, precisando de carinho ou querendo desabafar, manda uma mensagem pra ele, liga pra ele, demonstra isso, porque eu garanto que tudo o que ele mais quer é poder te ajudar. E, se não puder ajudar, ele vai estar ao seu lado, te apoiando e te dando carinho. Tenta, Nanda, e eu te garanto que você não vai se arrepender. ❤️");
+        digitar("Acabaram as frases por enquanto, Nanda, mas o amor que ele sente por você nunca vai acabar. O Gustavo está trabalhando para adicionar mais frases e me melhorar. E se você estiver um pouquinho xoxa, precisando de carinho ou querendo desabafar, manda uma mensagem pra ele, liga pra ele, demonstra isso, porque eu garanto que tudo o que ele mais quer é poder te ajudar. E, se não puder ajudar, ele vai estar ao seu lado, te apoiando e te dando carinho. Tenta, Nanda, e eu te garanto que você não vai se arrepender. ❤️");
         botao.disabled = true;
         botao.style.opacity = 0.6;
       }

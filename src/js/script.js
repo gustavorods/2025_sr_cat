@@ -1,112 +1,161 @@
-    // const textoInicial = "Olá Nanda, meu nome é Sr. Gato. O Gustavo me construiu para te animar quando você estiver meio xoxa e precisar ouvir algo bonito que ele tenha a dizer.";
-    const textoInicial = "Olá Nanda, quanto tempo! Lembra meu nome? Meu nome é Sr. Gato, o Gustavo me contou algumas coisinhas e eu vou falar pra você :) Mas antes, olha meu relógio e meu café, gostou?";
+const elemento = document.querySelector(".cat_text");
+const boxCat = document.querySelector("#imagens");
+const catImage = document.getElementById("catImage");
+const botao = document.querySelector(".btn");
 
-        const frasesBonitas = [
-      "Gustavo tem medo de você abandoná-lo, ele te ama muito.",
-      "Gustavo está toda hora pensando numa maneira de casar com você logo.",
-      "Gustavo gosta quando você se abre para ele e fala sobre seus sentimentos.",
-      "Gustavo pode falar coisas bem bobas do nada, mas tudo que ele quer no final é conseguir tirar uma risada sua.",
-      "Você não tem ideia do quanto ele te ama.",
-      "Gustavo é um cara que tem ciúmes, às vezes não fala por medo de parecer controlador, mas saiba que, no fundo, ele só tem medo de te perder.",
-      "Ele chora quando está com muita saudade sua e chora porque ama demais você.",
-      "Gustavo ama sua risada.",
-      "Ele adora quando você complementa as piadas bobas dele.",
-      "Ele nunca te trocaria.",
-      "Ele se sente especial quando você fala 'não fale com Molieres'.",
-      "Ele te ama e te quer muito.",
-      "Ele ama seus beijinhos.",
-      "Ele te acha MUITO linda.",
-      "Gustavo às vezes fica meio pra baixo, porque a mente dele pensa demais 24 horas por dia, e tudo que ele precisa nesses momentos é seu beijinho, um abraço e uma confirmação de que você o ama.",
-      "Você vive na mente dele, é o melhor pensamento dele.",
-      "Você tira as risadas mais sinceras dele.",
-      "Ele fica te admirando do nada, porque fica fascinado com sua beleza e com o fato de você ser um sonho realizado.",
-      "ELE TE AMA MUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUITO!",
-      "Mensagem dele agora:",
-      "Bom diaaa, minha gatita linda! Espero que seu dia seja maravilhoso e que minha presença ajude nisso. Eu te amo muito, beijos, linda!"
-    ];
+const hairBow = document.getElementById("hair_bow");
+const cake = document.getElementById("cake");
+const juice = document.getElementById("juice");
 
-    const elemento = document.querySelector(".cat_text");
-    const catImage = document.getElementById("catImage");
-    const botao = document.querySelector(".btn");
+hairBow.style.display = "none";
+cake.style.display = "none";
+juice.style.display = "none";
 
-    let fraseIndex = 0;
-    let talkingInterval;
-    let iniciou = false;
-    let escreverTimeout; // para controlar o setTimeout
+const frasesBonitas = [
+  "Sei que você sente muita falta dela, porque ela não era só um gato, era sua filha, sua companheira, o seu amor da forma mais pura e inocente.",
+  "Mesmo fazendo 1 ano hoje, essa dor não some, essa dor não some porque ela era muito especial e esse amor nunca vai acabar.",
+  "Com toda a certeza do mundo, a Nina ainda lembra de você, do jeito que ela dormia no seu colo, nas suas pernas, do jeito que você cuidava e brincava com ela.",
+  "Ela sente sua falta também, muito, e eu tenho certeza que ela ainda quer te encontrar de novo, te ver, te abraçar e te ronronar enquanto você faz carinho nela.",
+  "Quando a saudade apertar, lembra dos bons momentos que teve com ela e de como ela te deixava feliz, e se a saudade apertar mais e mais, abre o colar que o Gustavo te deu, ela tá lá com você.",
+  "Você ama muito ele e ela te ama muito, assim como o Gustavo te ama muito também.",
+  "Abraça o Gato Nina o mais forte que você conseguir (um pouco difícil porque ele é bem grande), mas eu tenho certeza que ele vai te confortar um pouco.",
+  "Abraços apertados e muito amor e carinho pra ti, Nanda.",
+  "Com todo amor, senhor gato ❤️🐱🐾"
+];
 
-    function startTalkingAnimation() {
-      let talking = false;
-      talkingInterval = setInterval(() => {
-        catImage.src = talking ? "./src/img/normal.png" : "./src/img/talking.png";
-        talking = !talking;
-      }, 200);
-    }
+let fraseIndex = 0;
+let talkingInterval;
+let iniciou = false;
+let escreverTimeout;
+let mostrandoGatos = false;
+let fotoIndex = 1;
 
-    function stopTalkingAnimation() {
-      clearInterval(talkingInterval);
-      catImage.src = "./src/img/normal.png";
-    }
+const totalFotos = 10;
 
-    function cancelarDigitacao() {
-      clearTimeout(escreverTimeout);
+// ------------------------- ANIMAÇÕES -------------------------
+function startTalkingAnimation() {
+  let talking = false;
+  talkingInterval = setInterval(() => {
+    catImage.src = talking ? "./src/img/normal.png" : "./src/img/talking.png";
+    talking = !talking;
+  }, 200);
+}
+
+function stopTalkingAnimation() {
+  clearInterval(talkingInterval);
+  catImage.src = "./src/img/normal.png";
+}
+
+function cancelarDigitacao() {
+  clearTimeout(escreverTimeout);
+  stopTalkingAnimation();
+}
+
+function digitar(frase, callback) {
+  cancelarDigitacao();
+  elemento.innerHTML = "";
+  let index = 0;
+  startTalkingAnimation();
+
+  function escreverLetra() {
+    if (index < frase.length) {
+      elemento.innerHTML += frase.charAt(index);
+      index++;
+      escreverTimeout = setTimeout(escreverLetra, 50);
+    } else {
       stopTalkingAnimation();
+      if (callback) callback();
     }
+  }
 
-    function digitar(frase, callback) {
-      cancelarDigitacao();
-      elemento.innerHTML = "";
-      let index = 0;
-      startTalkingAnimation();
+  escreverLetra();
+}
 
-      function escreverLetra() {
-        if (index < frase.length) {
-          elemento.innerHTML += frase.charAt(index);
-          index++;
-          escreverTimeout = setTimeout(escreverLetra, 50);
-        } else {
-          stopTalkingAnimation();
-          if (callback) callback();
-        }
-      }
+// ------------------------- SEQUÊNCIA INICIAL -------------------------
+function sequenciaInicial() {
+  digitar("Oiiii Nanda, quanto tempo! Eu tava com MUITA saudade de você. Antes da gente conversar, olha o que eu ganhei do Gustavo e acho que você vai amar.", () => {
+    setTimeout(() => {
+      hairBow.style.display = "block";
+      digitar("Fofo, né?", () => {
+        setTimeout(() => {
+          digitar("Ananda, eu sei que hoje faz 1 ano que você não vê a Nina. Antes de falar o que tenho pra te falar, eu trouxe um bolinho, porque sei que você ama — é de cenoura! 🍰 Além disso, um suco de laranja que você gosta também. 🧃", () => {
+            setTimeout(() => {
+              cake.style.display = "block";
+              juice.style.display = "block";
+              setTimeout(() => {
+                digitar("Agora sim, vamos conversar?");
+              }, 1500);
+            }, 1000);
+          });
+        }, 1000);
+      });
+    }, 1000);
+  });
+}
 
-      escreverLetra();
-    }
+sequenciaInicial();
 
-    digitar(textoInicial);
+// ------------------------- BOTÃO PRINCIPAL -------------------------
+botao.addEventListener("click", () => {
+  // Se estiver mostrando fotos de gatos
+  if (mostrandoGatos) {
+    mostrarFotos();
+    return;
+  }
 
-    botao.addEventListener("click", () => {
-      if (!iniciou) {
-        botao.value = "Quero escutar mais";
-        iniciou = true;
-      }
+  if (!iniciou) {
+    botao.value = "Quero escutar mais";
+    iniciou = true;
+  }
 
-      if (fraseIndex < frasesBonitas.length) {
-        digitar(frasesBonitas[fraseIndex]);
-        fraseIndex++;
-      } else {
-        digitar("Acabaram as frases por enquanto, Nanda, mas o amor que ele sente por você nunca vai acabar. O Gustavo está trabalhando para adicionar mais frases e me melhorar. E se você estiver um pouquinho xoxa, precisando de carinho ou querendo desabafar, manda uma mensagem pra ele, liga pra ele, demonstra isso, porque eu garanto que tudo o que ele mais quer é poder te ajudar. E, se não puder ajudar, ele vai estar ao seu lado, te apoiando e te dando carinho. Tenta, Nanda, e eu te garanto que você não vai se arrepender. ❤️");
-        botao.disabled = true;
-        botao.style.opacity = 0.6;
-      }
+  if (fraseIndex < frasesBonitas.length) {
+    digitar(frasesBonitas[fraseIndex]);
+    fraseIndex++;
+  } else {
+    // Terminou as frases
+    digitar("Quer ver gatos engraçados?", () => {
+      botao.value = "Sim";
+      mostrandoGatos = true;
+      fotoIndex = 1;
     });
+  }
+});
 
-    // Botão da música
-    const botaoMusica = document.querySelector(".music_btn");
-    const audio = document.querySelector(".audio");
+// ------------------------- MOSTRAR FOTOS -------------------------
+function mostrarFotos() {
+  if (fotoIndex <= totalFotos) {
+    boxCat.src = `./src/img/gatos/gato${fotoIndex}.jpeg`;
+    boxCat.style.display = "block";
+    elemento.innerHTML = "";
+    elemento.innerHTML = `Olha esse gato número ${fotoIndex}, Nanda! 😹`;
+    fotoIndex++;
+  } else {
+    mostrandoGatos = false;
+    botao.disabled = true;
+    botao.style.opacity = 0.6;
+    digitar(
+      "Acabaram as frases e fotos por enquanto, Nanda, mas o amor que ele sente por você nunca vai acabar. O Gustavo está trabalhando para adicionar mais frases e me melhorar. E se você estiver um pouquinho xoxa, precisando de carinho ou querendo desabafar, manda uma mensagem pra ele, liga pra ele, demonstra isso, porque eu garanto que tudo o que ele mais quer é poder te ajudar. E, se não puder ajudar, ele vai estar ao seu lado, te apoiando e te dando carinho. Tenta, Nanda, e eu te garanto que você não vai se arrepender. ❤️"
+    );
+  }
+}
 
-    let tocando = false;
+// ------------------------- MÚSICA -------------------------
+const botaoMusica = document.querySelector(".music_btn");
+const audio = document.querySelector(".audio");
 
-    botaoMusica.addEventListener("click", () => {
-      if (!tocando) {
-        audio.style.display = "block";
-        audio.play();
-        botaoMusica.value = "Parar música";
-        tocando = true;
-      } else {
-        audio.pause();
-        audio.currentTime = 0;
-        audio.style.display = "none";
-        botaoMusica.value = "Uma músiquinha pra relaxar? ;)";
-        tocando = false;
-      }
-    });
+let tocando = false;
+
+botaoMusica.addEventListener("click", () => {
+  if (!tocando) {
+    audio.style.display = "block";
+    audio.play();
+    botaoMusica.value = "Parar música";
+    tocando = true;
+  } else {
+    audio.pause();
+    audio.currentTime = 0;
+    audio.style.display = "none";
+    botaoMusica.value = "Uma músiquinha pra relaxar? ;)";
+    tocando = false;
+  }
+});

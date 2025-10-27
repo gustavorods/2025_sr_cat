@@ -44,6 +44,29 @@ body {
     transform: translateX(170%);
     bottom: 10%;
 }
+#juice {
+    position: absolute;
+    height: 50px;
+    width: auto;
+    transform: translateX(170%);
+    bottom: 10%; 
+}
+
+#cake {
+    position: absolute;
+    height: 100px;
+    width: auto;
+    transform: translateX(-20%);
+    bottom: -5%;
+}
+
+#hair_bow {
+    position: absolute;
+    height: 40px;
+    width: auto;
+    transform: translateX(55%);
+    bottom: 65%;
+}
 
 .chat_container {
     display: flex;
@@ -77,6 +100,12 @@ body {
     font-weight: 500;
     transition: all 0.3s ease; /* adiciona transição suave */
     cursor: pointer;
+}
+
+.photo_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .btn:hover {
